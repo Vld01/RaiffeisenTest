@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../fields/xsd/element_rules.xsd">
+    <Page name="Главная страница">
+        <StaticText name="Логотип" locator="//a[@class='header__logo']"/>
+        <Collection name="Главное меню" locator="//ul[@class='main-menu']//li">
+            <Button name="Наименование" locator="."/>
+        </Collection>
+        <Collection name="Подменю" locator="//a[@class='menu-link main-menu__link'][@href]">
+            <Button name="Наименование" locator="."/>
+        </Collection>
+    </Page>
+    <Page name="Резульат поиска">
+        <StaticText name="Дополнительная информация по запросу" locator=".//*[@aria-label='Дополнительная информация по запросу']" isLoaded="true"/>
+        <Collection name="Список результатов" locator="//ul[@aria-label='Результаты поиска']/li">
+            <StaticText name="Заголовок" locator=".//*[contains(@class, '__url-text')]"/>
+            <Link name="Ссылка" locator=".//a[contains(@class, 'link_theme_outer')]/b"/>
+        </Collection>
+    </Page>
+    <Page name="Ипотека">
+        <Button name="Оставить заявку" locator="//div[@class='b-intro__block-buttons']//a[text()='Оставить заявку']"
+                isLoaded="true"/>
+    </Page>
+    <Page name="Заполнение заявки на ипотеку">
+        <TextInput name="Введите e-mail" locator="//*[@name='email']"/>
+        <TextInput name="Введите фамилию" locator="//*[@name='lastName']"/>
+        <TextInput name="Введите имя" locator="//*[@name='firstName']"/>
+        <TextInput name="Введите отчество" locator="//*[@name='middleName']"/>
+        <TextInput name="Дата рождения" locator="//*[@name='birthDate']" customType="com.aplana.chameleon.element.custom.DateInput"/>
+        <TextInput name="Место рождения" locator="//*[@name='birthPlace']"/>
+        <TextInput name="Серия и номер паспорта" locator="//*[@name='passport']"/>
+        <TextInput name="Код подразделения" locator="//*[@name='unitCode']"/>
+        <TextInput name="Дата выдачи" locator="//*[@name='issuedDate']" customType="com.aplana.chameleon.element.custom.DateInput"/>
+        <TextInput name="Наименование органа, выдавшего паспорт" locator="//*[@name='issuedBy']"/>
+        <TextInput name="Адрес регистрации" locator="//*[@name='registrationAddress']" customType="com.aplana.chameleon.element.custom.DynamicTextInput"/>
+        <TextInput name="Доход" locator="//*[@name='salary']"/>
+        <ComboBox name="Могу подтвердить" locator="//*[text()='Могу подтвердить с помощью']/..//span"/>
+        <Button name="Продолжить" locator="//button[text()='Продолжить']"/>
+        <StaticText name="Поле обязательно для заполнения"
+                    locator="//div[text()='Телефон']/..//div[text()='Поле обязательно для заполнения']"/>
+    </Page>
+</Pages>
